@@ -82,6 +82,5 @@ var utilsCmd = &cli.Command{
 		utils.ChainExCmd,
 		utils.MinerExCmd,
 		utils.PowerExCmd,
-		utils.AddressTypeCmd,
 	},
 }

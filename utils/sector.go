@@ -311,8 +311,8 @@ var CollectMinersSectorCmd = &cli.Command{
 }
 
 var MinerSectorCmd = &cli.Command{
-	Name:      "sectors",
-	Aliases:   []string{"sectors"},
+	Name:      "miner-sectors",
+	Aliases: []string{"minersectors"},
 	Usage:     "Get miner all sector info",
 	ArgsUsage: "[miner address]",
 	Flags: []cli.Flag{

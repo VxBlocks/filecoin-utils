@@ -98,58 +98,6 @@ var ExAddressTransformationCmd = &cli.Command{
 	},
 }
 
-var AddressTypeCmd = &cli.Command{
-	Name:      "addr-type",
-	Aliases:   []string{"addrtype"},
-	Usage:     "Get address type",
-	ArgsUsage: "address",
-	Action: func(cctx *cli.Context) error {
-		if argc := cctx.Args().Len(); argc < 1 {
-			return xerrors.Errorf("must pass the address(id/fil/eth)")
-		}
-
-		api, closer, err := GetFullNodeAPI(cctx)
-		if err != nil {
-			return err
-		}
-		defer closer()
-		ctx := ReqContext(cctx)
-
-		addrString := cctx.Args().Get(0)
-		var eaddr ethtypes.EthAddress
-		faddr, err := address.NewFromString(addrString)
-		if err != nil { // This isn't a filecoin address
-			eaddr, err = ethtypes.ParseEthAddress(addrString)
-			if err != nil { // This isn't an Eth address either
-				return xerrors.Errorf("address is not a filecoin or eth address")
-			}
-			faddr, err = eaddr.ToFilecoinAddress()
-			if err != nil {
-				return err
-			}
-		} 
-		out := struct {
-			Type string
-		}{}
-
-		actor, err := api.StateGetActor(ctx, faddr, types.EmptyTSK)
-		if err == nil {
-			if name, _, ok := actors.GetActorMetaByCode(actor.Code); ok {
-				out.Type = name
-			} else {
-				out.Type = "unknown"
-			}
-		}
-		byte, err := json.MarshalIndent(out, "", "  ")
-		if err != nil {
-			return err
-		}
-		afmt := NewAppFmt(cctx.App)
-		afmt.Println(string(byte))
-		return nil
-	},
-}
-
 func ethAddrFromFilecoinAddress(ctx context.Context, addr address.Address, fnapi v0api.FullNode) (ethtypes.EthAddress, address.Address, error) {
 	var faddr address.Address
 	var err error

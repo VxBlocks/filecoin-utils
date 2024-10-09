@@ -198,7 +198,7 @@ var ChainGetBlockEX = &cli.Command{
 	Name:      "get-block",
 	Aliases:   []string{"getblock"},
 	Usage:     "Get a block and print its details",
-	ArgsUsage: "[blockCid]",
+	ArgsUsage: "[blockhash]",
 	Flags: []cli.Flag{
 		&cli.BoolFlag{
 			Name:  "raw",

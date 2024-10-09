@@ -61,11 +61,11 @@ var MinerExCmd = &cli.Command{
 	Usage: "Miner with filecoin blockchain",
 	Subcommands: []*cli.Command{
 		MinerListCmd,
-		MinerStateCmd,
-		MinerSectorCmd,
 		MinerEstimateFaultySectorCmd,
-		CollectMinersSectorCmd,
+		MinerStateCmd,
 		CollectMinerSectorCmd,
+		CollectMinersSectorCmd,
+		MinerSectorCmd,
 	},
 }
 
