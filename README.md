@@ -1,10 +1,10 @@
 # filecoin-utils
 
-This is a collection of utilities for working with the Filecoin blockchain.
+This is a collection of utilities working for Filecoin blockchain.
 - `address` displays multiple address formats including f0, f1, and eth.
 - `chain` provides utilities for getting block and tipset information.
 - `miner` provides utilities for getting miner information and sector expiration information.
-    - `state` gets the miner state of a miner. You can know the penalty amount for actively terminating a sector after the sector is damaged. Refer to `MinerSectorsState` 
+    - `state` gets the miner state of a miner. You can know the penalty amount for proactively terminating a sector after the sector is damaged. Refer to `MinerSectorsState` 
 - `power` provides utilities for getting network power information.
 
 
