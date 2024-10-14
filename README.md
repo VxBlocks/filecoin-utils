@@ -7,7 +7,6 @@ This is a collection of utilities working for Filecoin blockchain.The miner comm
     - `state` gets the miner state of a miner. You can know the penalty amount for proactively terminating a sector after the sector is damaged. Refer to `MinerSectorsState` 
 - `power` provides utilities for getting network power information.
 
-
 ## Build
 
 ```bash
