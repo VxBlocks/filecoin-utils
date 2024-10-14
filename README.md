@@ -1,6 +1,6 @@
 # filecoin-utils
 
-This is a collection of utilities working for Filecoin blockchain.
+This is a collection of utilities working for Filecoin blockchain.The miner commands particularly provide penalty statistics for terminating all sectors and time distribution data of sector expiration. These functions are really useful for miners.
 - `address` displays multiple address formats including f0, f1, and eth.
 - `chain` provides utilities for getting block and tipset information.
 - `miner` provides utilities for getting miner information and sector expiration information.
